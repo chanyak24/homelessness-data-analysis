@@ -1,0 +1,536 @@
+---
+title: "Homelessness in Australia"
+author: "Chanya Kitprapa"
+format: html
+editor: visual
+---
+
+::: panel-tabset
+<!-- Task 1 Tab: Data and Documenting -->
+
+## Data and Documenting
+
+### Questions:
+
+What could be the factors contributing to the increase in homelessness in Australia?
+
+Which state has most increasing in homelessness and what possibly could be the reason?
+
+Reason: I visited Melbourne in 2017 during my summer break. At that time, I didn’t see many homeless people. But when I came back in 2024, I noticed that there were a lot more people living on the streets than in previous years. This made me curious to understand the reasons behind the increasing number of homeless people in Melbourne.
+
+### Data description
+
+1.  homelessness
+
+    This homelessness data, sourced from the Australian Bureau of Statistics (ABS), is well-suited for analysis as it is based on the national Census of Population and Housing, not a small sample, ensuring comprehensive coverage. With a reference period in 2021, during the height of the COVID-19 pandemic, it provides timely insights into the pandemic’s impact on housing insecurity.
+
+    Licence: Creative Commons Attribution 4.0 International licence
+
+    Data limitation: The Census estimates homelessness using indirect indicators like overcrowding or temporary housing, which may misclassify individuals and lead to undercounts, especially among rough sleepers, youth, and Indigenous Australians. Since the data represents just one night and is only available at the state level, it may miss short-term or localised trends, limiting its use for detailed or time-sensitive analysis.
+
+    Data privacy: To minimise risk of identification people, the ABS uses technique called perturbation to randomly adjust cell values (Australian Bureau of Statistics, 2021).
+
+    Ethics: The ABS demonstrates strong alignment with key items in the DEON ethics checklist. It addresses collection bias by using indirect measures and supplementary data to improve representation of undercounted groups. Personal identifiable information (PII) is carefully managed. The ABS also ensures robust data security through government standard systems and policies, and follows strict data retention protocols. Legally, all activities comply with relevant legislation such as the Census and Statistics Act and the Privacy Act, and Privacy Impact Assessments are conducted regularly. These practices reflect a clear commitment to ethical, secure, and lawful data handling.
+
+    **Data dictionary**
+
+    -   State : state or territory in Australia
+
+    -   2016 : number of homeless in year 2016
+
+    -   2021 : number of homeless in year 2021
+
+    -   Increase : Change in homelessness from 2016 to 2021
+
+    **Assumptions and Transformations:**
+
+    -   The data include only the 2016 and 2021 Census years
+
+    -   State names were standardised to abbreviations (e.g., "Vic." → "VIC")
+
+    -   Change in homelessness from 2016 to 2021 was calculated
+
+    -   Minor formatting (e.g., long-format conversion) was applied to support time series visualisation and merging with other datasets
+
+2.  Covid-19 cases confirmed
+
+    The COVID-19 data was sourced from the National Notifiable Diseases Surveillance System (NNDSS), managed by the Department of Health, Disability and Ageing. This dataset is suitable for the analysis as the pandemic likely led to job losses, reduced working hours, or business closures, especially in vulnerable sectors, increasing financial stress and housing insecurity. In addition, it originates from a reliable and authoritative source, and it offers rich, detailed information including notification rates, the number of notified cases, and demographic breakdowns by state and territory, year, month, date range, age group, and sex. The data was last updated on 14 December 2022, aligning well with the time frame of this project.
+
+    Licence: used under Copyright Act 1968 for research purposes. No commercial use intended.
+
+    Data limitation: Case numbers depend on who got tested and reported. Differences in **testing availability**, **state policies**, and **public behaviour** (e.g. willingness to get tested) may lead to **underreporting** or inconsistent data across time and regions.
+
+    Data privacy: The Department of Health’s privacy policy supports ethical data use by collecting only necessary information with consent, securing and limiting access, and using data strictly for public health purposes. It follows national privacy and retention laws and ensures accountability through regular assessments and a formal complaint process.
+
+    **Data dictionary**
+
+    -   State : state or territory in Australia
+
+    -   Diagnosis Year : Year of the covid-19 notification rate
+
+    -   Rate : Notification rates per 100,000 people
+
+    **Assumption and transformation**
+
+    -   The dataset was filtered to include confirmed COVID-19 cases from 2020 to 2022 to align with the impact period on homelessness trends.
+
+    -   Notification rates per 100,000 people were used as the primary measure for consistency across different population sizes.
+
+    -   Dates were parsed and converted to standard date formats; month-level data was aggregated to yearly summaries.
+
+    -   State names were standardised to common abbreviations (e.g., "New South Wales" to "NSW") to match other datasets.
+
+    -   Commas in numerical fields were removed and converted to numeric data types for analysis and visualization.
+
+3.  Job vacancies
+
+    The job vacancies data was sourced from ABS, which collecting on the third Friday of the middle month of the quarter, i.e. February, May, August and November. This is the sample data with approximately 4,000 statistical units.
+
+    This dataset is suitable for the analysis as it reflects the state of the labour market and overall economic health. Low job vacancies may indicate fewer employment opportunities, making it harder for people to secure stable income which is one of the key factors in maintaining housing.
+
+    Licence: Creative Commons Attribution 4.0 International licence
+
+    Data limitation: The job vacancies data is drawn from a sample survey, not a complete census, which introduces sampling error. This means local fluctuations in employment opportunities may not be fully captured, which could limit the precision of your homelessness analysis. Additionally, small businesses (with under 5 employees) are excluded from direct surveying (Australian Bureau of Statistics, 2025), even though they play a vital role in local job markets that may affect housing security.
+
+    Data privacy&ethics: The ABS ensures responsible data stewardship by immediately separating identifiable information from statistical data after collection, so analysts never access both at the same time. They also conduct Privacy Impact Assessments (PIAs) for new projects to identify and reduce risks, and implement strict data retention policiee by destroying personal identifiers once processing is complete and only keeping data for as long as legally required.
+
+    **Data dictionary**
+
+    -   State : state or territory in Australia
+
+    -   Year_2016 : number of job vacancy (in '000) in 2016
+
+    -   Year_2021 : number of job vacancy (in '000) in 2021
+
+    -   JobVacancy_Change : Change in number of job vacancy from 2016 to 2021
+
+    **Assumptions and transformation**
+
+    -   Only data from 2016 onwards was retained to align with available homelessness records and focus on recent labour market trends.
+
+    -   State and territory names were cleaned and converted to standard abbreviations (e.g., “Queensland” to “QLD”) for consistency across datasets.
+
+    -   Job vacancy figures were converted to numeric format by removing any commas or formatting symbols.
+
+    -   Quarterly data (February, May, August, November) was aggregated to annual averages to allow comparison with annual homelessness data.
+
+### Data processing
+
+Homeless data
+
+```{r}
+
+library(readxl)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(rvest)
+library(ggcorrplot)
+library(lubridate)
+
+#homeless person
+
+#1. go to website "https://www.abs.gov.au/statistics/people/housing/estimating-homelessness-census/2021#key-statistics"
+
+#2. go to topic "Data downloads" and download XLSX the fist file name "Census of Population and Housing: estimating homelessness"
+
+
+#3. load data into Rstudio
+
+file_name <- "data/20490do001_2021.xlsx"
+
+homeless_data <- read_excel(file_name, sheet = "Table_1.3", skip = 4)
+
+# I chose to show only this row because it represent overall amount of homeless person, while other row show by each category
+homeless_2021 <- homeless_data %>% slice(c(34))
+homeless_2016 <- homeless_data %>% slice(c(67))
+
+# rename first column
+homeless_2016 <- homeless_2016 %>%
+  rename(Year = `...1`) %>%      
+  mutate(Year = "2016") %>%
+  mutate(across(-Year, as.numeric))
+
+homeless_2021 <- homeless_2021 %>%
+  rename(Year = `...1`) %>%
+  mutate(Year = "2021") %>%
+  mutate(across(-Year, as.numeric))
+
+#combine 2 years data for analysis
+homeless_all <- bind_rows(homeless_2016, homeless_2021)
+
+#convert to long format
+homeless_long <- homeless_all %>%
+  pivot_longer(-Year, names_to = "State", values_to = "Count")
+
+#change State to align with other datasets
+homeless_long <- homeless_long %>%
+  mutate(State = case_when(
+    State == "Vic." ~ "VIC",
+    State == "NSW" ~ "NSW",
+    State == "Qld" ~ "QLD",
+    State == "SA" ~ "SA",
+    State == "WA" ~ "WA",
+    State == "Tas." ~ "TAS",
+    State == "NT" ~ "NT",
+    State == "ACT" ~ "ACT",
+    State == "Aust.(b)(c)" ~ "AUS",
+    TRUE ~ State  
+  )) %>% filter(State != "AUS") #exclude "AUS" because it is the sum of all states
+
+#wide for calculate increase between 2021 and 2016
+homeless_wide <- homeless_long %>%
+  pivot_wider(names_from = Year, values_from = Count) %>%
+  mutate(Increase = `2021` - `2016`)
+
+```
+
+Covid-19 notification rate
+
+```{r}
+
+
+#1. go to website "https://www.health.gov.au/resources/apps-and-tools/national-notifiable-diseases-surveillance-system-nndss-data-visualisation-tool"
+
+#2. click "start now"
+
+#3. choose tab "Notifications For All Diseases"
+
+#4. filter "Disease Name" as COVID-19 and then click "Export data"
+
+#5. load data into Rstudio
+
+covid_rate <- read_excel("data/Notification Rate Per 100,000.xlsx", sheet = NULL)
+
+covid_rate
+```
+
+```{r}
+
+#change format to long for visualisation
+
+covid_long <- covid_rate %>%
+  pivot_longer(
+    cols = -`Diagnosis Year`,      # keep 'Diagnosis Year' as-is
+    names_to = "State",            # new column for state names
+    values_to = "Rate"             # new column for the values
+  ) %>%
+  filter(!is.na(Rate) & Rate != 0)
+
+covid_long
+```
+
+```{r}
+
+
+# Remove commas and convert to numeric
+covid_long$Rate <- as.numeric(gsub(",", "", covid_long$Rate))
+
+# Make sure Year is numeric or factor
+covid_long$`Diagnosis Year` <- as.numeric(as.character(covid_long$`Diagnosis Year`))
+
+```
+
+Job vacancies
+
+```{r}
+
+
+#1. go to website "https://www.abs.gov.au/statistics/labour/jobs/job-vacancies-australia/feb-2025#media-releases"
+
+#2. go to topic "Data downloads" and download XLSX the fist table name "Job vacancies, states and territories ('000)"
+
+#3. load data into Rstudio
+
+
+job_vacancy <- read_excel("data/6354001.xlsx", sheet = "Data1") %>% 
+  slice(-c(1:9))
+
+# Convert Excel serial to Date (base = 1900-01-01)
+job_vacancy$Date <- as.Date(as.numeric(job_vacancy[[1]]), origin = "1899-12-30")
+
+job_vacancy <- job_vacancy[, c(ncol(job_vacancy), 1:(ncol(job_vacancy)-1))] %>% 
+  select(-c("...1")) %>% 
+  select(1:9) %>% 
+  filter(Date >= as.Date("2016-01-01"))
+
+job_vacancy
+
+#unit in thousand '000
+```
+
+```{r}
+
+#Convert columns to proper format
+job_vacancy_clean <- job_vacancy %>%
+  mutate(across(-Date, as.numeric))  # Convert all state columns to numeric
+
+#Convert to long format
+job_vacancy_long <- job_vacancy_clean %>%
+  pivot_longer(
+    cols = -Date,
+    names_to = "State",
+    values_to = "Vacancies"
+  ) %>%
+  mutate(State = case_when(
+    str_detect(State, "New South Wales") ~ "NSW",
+    str_detect(State, "Victoria") ~ "VIC",
+    str_detect(State, "Queensland") ~ "QLD",
+    str_detect(State, "South Australia") ~ "SA",
+    str_detect(State, "Western Australia") ~ "WA",
+    str_detect(State, "Tasmania") ~ "TAS",
+    str_detect(State, "Northern Territory") ~ "NT",
+    str_detect(State, "Australian Capital Territory") ~ "ACT",
+    TRUE ~ State  
+  ))
+```
+
+Merge data for visualisation
+
+```{r}
+
+
+##homeless
+homeless_change <- (homeless_2021[,-1] - homeless_2016[,-1]) / homeless_2016[,-1] * 100
+homeless_change <- round(homeless_change, 2)
+
+homeless_change_long <- homeless_change %>%
+  pivot_longer(cols = everything(), names_to = "State", values_to = "Homeless_Change")
+
+homeless_change_long <- homeless_change_long %>%
+  mutate(State = case_when(
+    State == "Vic." ~ "VIC",
+    State == "NSW" ~ "NSW",
+    State == "Qld" ~ "QLD",
+    State == "SA" ~ "SA",
+    State == "WA" ~ "WA",
+    State == "Tas." ~ "TAS",
+    State == "NT" ~ "NT",
+    State == "ACT" ~ "ACT",
+    State == "Aust.(b)(c)" ~ "AUS",
+    TRUE ~ State  # fallback to keep other labels unchanged
+  )) %>% filter(State != "AUS")
+
+##covid
+
+#Filter only years we want to compare
+covid_filtered <- covid_long %>%
+  filter(`Diagnosis Year` %in% c(2020, 2021, 2022))
+
+#Pivot wider
+covid_wide <- covid_filtered %>%
+  pivot_wider(names_from = `Diagnosis Year`, values_from = Rate)
+
+#Calculate % change (choose 2020 to 2021 or 2022)
+covid_change <- covid_wide %>%
+  mutate(Percent_Change_21 = (`2021` - `2020`) / `2020` * 100)
+
+##jobvacancy
+
+library(lubridate)
+
+#Extract year from the Date
+job_vacancy_long_year <- job_vacancy_long %>%
+  mutate(Year = year(Date))
+
+#Average vacancies by State and Year
+job_vacancy_summary <- job_vacancy_long_year %>%
+  filter(Year %in% c(2016, 2021)) %>%
+  group_by(State, Year) %>%
+  summarise(Avg_Vacancy = mean(Vacancies, na.rm = TRUE), .groups = "drop")
+
+#Pivot wider so each state has a column for 2016 and 2021
+job_vacancy_change <- job_vacancy_summary %>%
+  pivot_wider(names_from = Year, values_from = Avg_Vacancy, names_prefix = "Year_")
+
+#Calculate % change
+job_vacancy_change <- job_vacancy_change %>%
+  mutate(JobVacancy_Change = (Year_2021 - Year_2016) / Year_2016 * 100)
+
+#merge all data
+merged_data <- homeless_change_long %>%
+  inner_join(covid_change %>% select(State, Percent_Change_21), by = "State") %>%
+  inner_join(job_vacancy_change %>% select(State, JobVacancy_Change), by = "State")
+```
+
+### AI acknowledgement
+
+<https://chatgpt.com/share/68577660-d28c-8002-958a-c2620ead8979>
+
+<!-- Task 2 Tab: Writing your blogpost -->
+
+## Blog post
+
+### Why Is Homelessness Increasing in Australia?
+
+When we think of homelessness, we often picture someone sleeping rough on the street. But homelessness is much broader than that. In Australia, homelessness includes people who don’t have a stable, safe, or adequate place to live. This could mean staying in crisis accommodation or shelters, sleeping in cars or public spaces, couch surfing with friends or family, or living in overcrowded or insecure housing without a proper lease.
+
+The Australian Bureau of Statistics (ABS) defines someone as homeless if their living situation is inadequate, lacks secure tenure, or doesn’t provide them with control over their personal space. In short, homelessness isn’t just about having a roof over your head. it’s about having a home where you feel safe, stable, and connected.
+
+### Why analyse homelessness in Australia?
+
+When I first visited Melbourne in 2017, homelessness didn’t seem very visible. But when I returned in 2024, I noticed a stark difference, many more people sleeping rough or asking for help on the streets. This got me wondering: *What changed?* Why are more people without homes in one of the world’s most liveable cities?
+
+### Exploring the Possible Causes
+
+To dig deeper, I looked into three datasets that might offer some clues:
+
+1.  **Homelessness Data**: Sourced from the Australian Bureau of Statistics (ABS), this dataset is based on the 2021 Census of Population and Housing. Because it covers the entire population—not just a sample—it offers a comprehensive national view. The timing is also significant: 2021 was right in the middle of the COVID-19 pandemic, making this dataset especially valuable for understanding how the crisis may have affected housing security.
+2.  **COVID-19 Cases**: The pandemic caused massive disruptions to the economy. People lost jobs, businesses shut down, and mental health challenges surged. I used data from the National Notifiable Diseases Surveillance System (NNDSS), which records COVID-19 notification rates by state, age, and sex.
+3.  **Job Vacancies**: This data from the ABS tracks how many job openings were available each quarter. It’s a good way to gauge how easy (or hard) it was to find work—especially during and after the pandemic.
+
+Together, these datasets helped me explore whether the pandemic and the job market had anything to do with the rise in homelessness.
+
+### What the Data Tells Us
+
+The chart below shows the change in the number of homeless persons in each Australian state between the 2016 and 2021 censuses. Victoria recorded the largest increase in homelessness, with over 5,000 more people counted as homeless in 2021 compared to 2016. South Australia, Queensland, and Tasmania also saw noticeable increases. In contrast, New South Wales and the Northern Territory experienced a decline in homelessness. These trends suggest that homelessness is not rising uniformly across the country, and local factors such as housing supply, policy interventions, and economic conditions may be influencing the outcomes differently in each state.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+#homeless increase
+
+homeless_wide %>% ggplot(aes(x = reorder(State, Increase), y = Increase, fill = State)) +
+  geom_col(show.legend = FALSE) +
+  labs(title = "Increase in Homelessness by State (2016 vs 2021)",
+       x = "State",
+       y = "Increase in Number of Homeless Persons") +
+  theme_minimal() +
+  coord_flip()
+
+
+```
+
+The COVID notification rate spiked dramatically across all four states in 2022, with the Northern Territory (NT) and Victoria (VIC) reporting the highest case rates, closely followed by New South Wales (NSW). Queensland (QLD) also saw a significant increase, though slightly lower in comparison. This sharp peak highlights the widespread impact of the pandemic during that period. However, despite higher COVID rates in NT and VIC, their homelessness outcomes diverged — VIC saw the largest increase in homelessness, while NT experienced a decline. This suggests that other factors, such as state-level policies, support measures, or demographic differences, may have influenced how the pandemic affected housing security.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+
+ggplot(covid_long %>% filter(State %in% c("VIC", "NSW", "NT", "QLD")), aes(x = `Diagnosis Year`, y = Rate, color = State)) +
+  geom_line(size = 1) +
+  labs(title = "COVID Notification Rate by State",
+       y = "Rate per 100,000 people",
+       x = "Year") +
+  theme_minimal()
+
+ggplot(covid_change, aes(x = reorder(State, Percent_Change_21), y = Percent_Change_21, fill = State)) +
+  geom_col() +
+  labs(title = "COVID Notification Rate % Change (2020 to 2021)",
+       x = "State",
+       y = "Change (%)") +
+  theme_minimal() +
+  coord_flip()
+
+```
+
+Lastly, job vacancies dropped sharply in early 2020 across all states, reflecting the immediate economic impact of the COVID-19 outbreak. However, starting in 2021, there was a strong rebound in most regions, particularly in New South Wales (NSW) and Victoria (VIC), which saw job openings peak in 2022.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+
+ggplot(job_vacancy_long, aes(x = Date, y = Vacancies, color = State)) +
+  geom_line(size = 1) +
+  labs(
+    title = "Job Vacancies by State Over Time",
+    x = "Date",
+    y = "Vacancies ('000)",
+    color = "State"
+  ) +
+  theme_minimal()
+
+```
+
+I ran a correlation analysis to understand how changes in COVID cases and job vacancies related to homelessness. Here's what stood out:
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+
+
+
+
+# Keep only numeric columns and calculate correlation
+cor_matrix <- cor(merged_data %>% select(-State), use = "complete.obs")
+
+# Plot heatmap
+ggcorrplot(cor_matrix, 
+           method = "circle", 
+           type = "lower",
+           lab = TRUE,
+           title = "Correlation Between Homelessness, COVID Rates, 
+           and Job Vacancies")
+```
+
+**COVID vs. Job Vacancies (r = 0.78)**\
+Surprisingly, as COVID notifications rose, so did job vacancies. This might reflect the shift in demand—more jobs in health, cleaning, and delivery sectors, for example.
+
+**COVID vs. Homelessness (r = –0.43)**\
+You’d expect COVID to make things worse, but the data suggests states with higher COVID rates didn’t always see a spike in homelessness. This could be due to short-term government support like JobKeeper and emergency housing.
+
+**Job Vacancies vs. Homelessness (r = 0.48)**\
+Even where job vacancies grew, homelessness still increased. This might mean the new jobs weren’t accessible or suitable for vulnerable populations.
+
+### What This Means
+
+Homelessness is complex. It’s not just about job numbers or infection rates—it’s about how resilient people are, what support systems exist, and whether society’s safety nets are working. What I’ve learned is that more jobs don’t always mean fewer homeless people. And COVID may have temporarily paused the crisis rather than solving it.
+
+### Conclusion
+
+Homelessness in Australia is increasing, but the reasons behind it are complex and vary across states. While Victoria saw a major spike, some states like NSW and NT experienced a decline. My exploration into COVID-19 case rates and job vacancies shows that the story is more complex than just economic downturns or public health crises. Interestingly, even though some states had more job openings, homelessness still went up. This shows that the economic recovery didn’t help everyone, especially people who were already struggling. And although COVID had a huge impact, emergency government responses may have buffered its immediate effect on housing loss. Ultimately, homelessness is shaped by many overlapping forces, such as health, employment, policy, and social safety nets. It’s not just a housing problem, it’s a systems problem. Understanding those connections is key if we want real solutions.
+
+### References
+
+Australian Bureau of Statistics. (2021). *Estimating Homelessness: Census*. https://www.abs.gov.au/statistics/people/housing/estimating-homelessness-census/2021.
+
+Australian Bureau of Statistics. (2021). *Estimating Homelessness: Census methodology.* https://www.abs.gov.au/methodologies/estimating-homelessness-census-methodology/2021#abbreviations
+
+Australian Bureau of Statistics. (2025). *Job Vacancies, Australia methodology.* https://www.abs.gov.au/methodologies/job-vacancies-australia-methodology/feb-2025#how-the-data-is-collected
+
+Department of Health, Disability, and Ageing (2025). National Notifiable Disease Surveillance System, Department of Health and Aged Care website, accessed 16 June 2025. https://nindss.health.gov.au/pbi-dashboard/.
+
+Wickham H, François R, Henry L, Müller K, Vaughan D (2023). *dplyr: A Grammar of Data Manipulation*. R package version 1.1.4, <https://CRAN.R-project.org/package=dplyr>.
+
+Wickham H, Bryan J (2023). *readxl: Read Excel Files*. R package version 1.4.3, <https://CRAN.R-project.org/package=readxl>.
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” *Journal of Open Source Software*, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
+
+Wickham H (2024). *rvest: Easily Harvest (Scrape) Web Pages*. R package version 1.0.4, <https://CRAN.R-project.org/package=rvest>.
+
+Kassambara A (2023). *ggcorrplot: Visualization of a Correlation Matrix using 'ggplot2'*. R package version 0.1.4.1, <https://CRAN.R-project.org/package=ggcorrplot>.
+
+Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL <https://www.jstatsoft.org/v40/i03/.>
+
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+
+<!-- Task 3 Tab: Behind the Scenes -  -->
+
+## Behind the Scenes
+
+### Question 5
+
+*Tell us about parts of **your** data processing or analysis that weren’t “sexy” and wouldn’t typically be included in a blog post.*
+
+At the beginning, I used too many datasets without fully considering the time and effort required to clean and prepare them for analysis. Merging the data turned out to be time-consuming. In the end, one dataset couldn’t be used at all because it lacked a key variable, State, which made it incompatible with the others.
+
+### Question 6
+
+*Were there any challenges that **you** faced in conducting this analysis. These may take the form of data limitations or coding challenges?*
+
+I changed the question from “Is there a correlation between the COVID-19 pandemic (cases confirmed) and homelessness in Melbourne OR other area, like Brisbane or Sydney? Each local government policy on Covid-19 make difference?” to “What could be the factors contributing to the increase in homelessness in Australia? Which state has most increasing in homelessness and what possibly could be the reason?” because homelessness data is only available at the time of the national Census. In addition, I’m not familiar with COR function, which I need to study more about it.
+
+### Question 7
+
+*Tell us about any imperfect parts of your work and how **you** would like to expand or improve this analysis in future? Be clear about any limitations or aspects of your analysis that fell beyond scope.*
+
+Due to the limited time frame, I focused on a few factors that may contribute to the rise in homelessness in Australia. However, I believe the causes of homelessness are more complex than just two or three factors. It may also involve government policies, which are not available as datasets to analyse alongside the others. In addition, the results should not be taken as definitive proof of a rise in homelessness. They only suggest possible contributing factors or correlations. The datasets I used may not directly answer the question I posed, but they offer some insights. To truly understand the underlying causes, more targeted data, further research, and additional time would be necessary.
+:::

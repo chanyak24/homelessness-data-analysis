@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Chanya Kitprapa">
+
+<title>Homelessness in Australia</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="analysis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="analysis_files/libs/quarto-html/quarto.js"></script>
+<script src="analysis_files/libs/quarto-html/popper.min.js"></script>
+<script src="analysis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="analysis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="analysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="analysis_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="analysis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="analysis_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homelessness in Australia</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Chanya Kitprapa </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Data and Documenting</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Blog post</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Behind the Scenes</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<section id="questions" class="level3">
+<h3 class="anchored" data-anchor-id="questions">Questions:</h3>
+<p>What could be the factors contributing to the increase in homelessness in Australia?</p>
+<p>Which state has most increasing in homelessness and what possibly could be the reason?</p>
+<p>Reason: I visited Melbourne in 2017 during my summer break. At that time, I didn’t see many homeless people. But when I came back in 2024, I noticed that there were a lot more people living on the streets than in previous years. This made me curious to understand the reasons behind the increasing number of homeless people in Melbourne.</p>
+</section>
+<section id="data-description" class="level3">
+<h3 class="anchored" data-anchor-id="data-description">Data description</h3>
+<ol type="1">
+<li><p>homelessness</p>
+<p>This homelessness data, sourced from the Australian Bureau of Statistics (ABS), is well-suited for analysis as it is based on the national Census of Population and Housing, not a small sample, ensuring comprehensive coverage. With a reference period in 2021, during the height of the COVID-19 pandemic, it provides timely insights into the pandemic’s impact on housing insecurity.</p>
+<p>Licence: Creative Commons Attribution 4.0 International licence</p>
+<p>Data limitation: The Census estimates homelessness using indirect indicators like overcrowding or temporary housing, which may misclassify individuals and lead to undercounts, especially among rough sleepers, youth, and Indigenous Australians. Since the data represents just one night and is only available at the state level, it may miss short-term or localised trends, limiting its use for detailed or time-sensitive analysis.</p>
+<p>Data privacy: To minimise risk of identification people, the ABS uses technique called perturbation to randomly adjust cell values (Australian Bureau of Statistics, 2021).</p>
+<p>Ethics: The ABS demonstrates strong alignment with key items in the DEON ethics checklist. It addresses collection bias by using indirect measures and supplementary data to improve representation of undercounted groups. Personal identifiable information (PII) is carefully managed. The ABS also ensures robust data security through government standard systems and policies, and follows strict data retention protocols. Legally, all activities comply with relevant legislation such as the Census and Statistics Act and the Privacy Act, and Privacy Impact Assessments are conducted regularly. These practices reflect a clear commitment to ethical, secure, and lawful data handling.</p>
+<p><strong>Data dictionary</strong></p>
+<ul>
+<li><p>State : state or territory in Australia</p></li>
+<li><p>2016 : number of homeless in year 2016</p></li>
+<li><p>2021 : number of homeless in year 2021</p></li>
+<li><p>Increase : Change in homelessness from 2016 to 2021</p></li>
+</ul>
+<p><strong>Assumptions and Transformations:</strong></p>
+<ul>
+<li><p>The data include only the 2016 and 2021 Census years</p></li>
+<li><p>State names were standardised to abbreviations (e.g., “Vic.” → “VIC”)</p></li>
+<li><p>Change in homelessness from 2016 to 2021 was calculated</p></li>
+<li><p>Minor formatting (e.g., long-format conversion) was applied to support time series visualisation and merging with other datasets</p></li>
+</ul></li>
+<li><p>Covid-19 cases confirmed</p>
+<p>The COVID-19 data was sourced from the National Notifiable Diseases Surveillance System (NNDSS), managed by the Department of Health, Disability and Ageing. This dataset is suitable for the analysis as the pandemic likely led to job losses, reduced working hours, or business closures, especially in vulnerable sectors, increasing financial stress and housing insecurity. In addition, it originates from a reliable and authoritative source, and it offers rich, detailed information including notification rates, the number of notified cases, and demographic breakdowns by state and territory, year, month, date range, age group, and sex. The data was last updated on 14 December 2022, aligning well with the time frame of this project.</p>
+<p>Licence: used under Copyright Act 1968 for research purposes. No commercial use intended.</p>
+<p>Data limitation: Case numbers depend on who got tested and reported. Differences in <strong>testing availability</strong>, <strong>state policies</strong>, and <strong>public behaviour</strong> (e.g.&nbsp;willingness to get tested) may lead to <strong>underreporting</strong> or inconsistent data across time and regions.</p>
+<p>Data privacy: The Department of Health’s privacy policy supports ethical data use by collecting only necessary information with consent, securing and limiting access, and using data strictly for public health purposes. It follows national privacy and retention laws and ensures accountability through regular assessments and a formal complaint process.</p>
+<p><strong>Data dictionary</strong></p>
+<ul>
+<li><p>State : state or territory in Australia</p></li>
+<li><p>Diagnosis Year : Year of the covid-19 notification rate</p></li>
+<li><p>Rate : Notification rates per 100,000 people</p></li>
+</ul>
+<p><strong>Assumption and transformation</strong></p>
+<ul>
+<li><p>The dataset was filtered to include confirmed COVID-19 cases from 2020 to 2022 to align with the impact period on homelessness trends.</p></li>
+<li><p>Notification rates per 100,000 people were used as the primary measure for consistency across different population sizes.</p></li>
+<li><p>Dates were parsed and converted to standard date formats; month-level data was aggregated to yearly summaries.</p></li>
+<li><p>State names were standardised to common abbreviations (e.g., “New South Wales” to “NSW”) to match other datasets.</p></li>
+<li><p>Commas in numerical fields were removed and converted to numeric data types for analysis and visualization.</p></li>
+</ul></li>
+<li><p>Job vacancies</p>
+<p>The job vacancies data was sourced from ABS, which collecting on the third Friday of the middle month of the quarter, i.e.&nbsp;February, May, August and November. This is the sample data with approximately 4,000 statistical units.</p>
+<p>This dataset is suitable for the analysis as it reflects the state of the labour market and overall economic health. Low job vacancies may indicate fewer employment opportunities, making it harder for people to secure stable income which is one of the key factors in maintaining housing.</p>
+<p>Licence: Creative Commons Attribution 4.0 International licence</p>
+<p>Data limitation: The job vacancies data is drawn from a sample survey, not a complete census, which introduces sampling error. This means local fluctuations in employment opportunities may not be fully captured, which could limit the precision of your homelessness analysis. Additionally, small businesses (with under 5 employees) are excluded from direct surveying (Australian Bureau of Statistics, 2025), even though they play a vital role in local job markets that may affect housing security.</p>
+<p>Data privacy&amp;ethics: The ABS ensures responsible data stewardship by immediately separating identifiable information from statistical data after collection, so analysts never access both at the same time. They also conduct Privacy Impact Assessments (PIAs) for new projects to identify and reduce risks, and implement strict data retention policiee by destroying personal identifiers once processing is complete and only keeping data for as long as legally required.</p>
+<p><strong>Data dictionary</strong></p>
+<ul>
+<li><p>State : state or territory in Australia</p></li>
+<li><p>Year_2016 : number of job vacancy (in ’000) in 2016</p></li>
+<li><p>Year_2021 : number of job vacancy (in ’000) in 2021</p></li>
+<li><p>JobVacancy_Change : Change in number of job vacancy from 2016 to 2021</p></li>
+</ul>
+<p><strong>Assumptions and transformation</strong></p>
+<ul>
+<li><p>Only data from 2016 onwards was retained to align with available homelessness records and focus on recent labour market trends.</p></li>
+<li><p>State and territory names were cleaned and converted to standard abbreviations (e.g., “Queensland” to “QLD”) for consistency across datasets.</p></li>
+<li><p>Job vacancy figures were converted to numeric format by removing any commas or formatting symbols.</p></li>
+<li><p>Quarterly data (February, May, August, November) was aggregated to annual averages to allow comparison with annual homelessness data.</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="data-processing" class="level3">
+<h3 class="anchored" data-anchor-id="data-processing">Data processing</h3>
+<p>Homeless data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.1.5
+✔ ggplot2   4.0.0     ✔ stringr   1.5.2
+✔ lubridate 1.9.4     ✔ tibble    3.3.0
+✔ purrr     1.1.0     ✔ tidyr     1.3.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#homeless person</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#1. go to website "https://www.abs.gov.au/statistics/people/housing/estimating-homelessness-census/2021#key-statistics"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2. go to topic "Data downloads" and download XLSX the fist file name "Census of Population and Housing: estimating homelessness"</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#3. load data into Rstudio</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">"data/20490do001_2021.xlsx"</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>homeless_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(file_name, <span class="at">sheet =</span> <span class="st">"Table_1.3"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...1`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I chose to show only this row because it represent overall amount of homeless person, while other row show by each category</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>homeless_2021 <span class="ot">&lt;-</span> homeless_data <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">34</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>homeless_2016 <span class="ot">&lt;-</span> homeless_data <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">67</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># rename first column</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>homeless_2016 <span class="ot">&lt;-</span> homeless_2016 <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> <span class="st">`</span><span class="at">...1</span><span class="st">`</span>) <span class="sc">%&gt;%</span>      </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="st">"2016"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Year, as.numeric))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>homeless_2021 <span class="ot">&lt;-</span> homeless_2021 <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> <span class="st">`</span><span class="at">...1</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="st">"2021"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Year, as.numeric))</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#combine 2 years data for analysis</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>homeless_all <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(homeless_2016, homeless_2021)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#convert to long format</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>homeless_long <span class="ot">&lt;-</span> homeless_all <span class="sc">%&gt;%</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Year, <span class="at">names_to =</span> <span class="st">"State"</span>, <span class="at">values_to =</span> <span class="st">"Count"</span>)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">#change State to align with other datasets</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>homeless_long <span class="ot">&lt;-</span> homeless_long <span class="sc">%&gt;%</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">case_when</span>(</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Vic."</span> <span class="sc">~</span> <span class="st">"VIC"</span>,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"NSW"</span> <span class="sc">~</span> <span class="st">"NSW"</span>,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Qld"</span> <span class="sc">~</span> <span class="st">"QLD"</span>,</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"SA"</span> <span class="sc">~</span> <span class="st">"SA"</span>,</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"WA"</span> <span class="sc">~</span> <span class="st">"WA"</span>,</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Tas."</span> <span class="sc">~</span> <span class="st">"TAS"</span>,</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"NT"</span> <span class="sc">~</span> <span class="st">"NT"</span>,</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"ACT"</span> <span class="sc">~</span> <span class="st">"ACT"</span>,</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Aust.(b)(c)"</span> <span class="sc">~</span> <span class="st">"AUS"</span>,</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> State  </span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(State <span class="sc">!=</span> <span class="st">"AUS"</span>) <span class="co">#exclude "AUS" because it is the sum of all states</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="co">#wide for calculate increase between 2021 and 2016</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>homeless_wide <span class="ot">&lt;-</span> homeless_long <span class="sc">%&gt;%</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Year, <span class="at">values_from =</span> Count) <span class="sc">%&gt;%</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Increase =</span> <span class="st">`</span><span class="at">2021</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">2016</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Covid-19 notification rate</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1. go to website "https://www.health.gov.au/resources/apps-and-tools/national-notifiable-diseases-surveillance-system-nndss-data-visualisation-tool"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#2. click "start now"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#3. choose tab "Notifications For All Diseases"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4. filter "Disease Name" as COVID-19 and then click "Export data"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#5. load data into Rstudio</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>covid_rate <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/Notification Rate Per 100,000.xlsx"</span>, <span class="at">sheet =</span> <span class="cn">NULL</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>covid_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 10
+   `Diagnosis Year` ACT    NSW    NT     QLD    SA     TAS    VIC    WA    AUS  
+   &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
+ 1 2024             1,010  1,579  1,107  1,319  2,347  2,113  789    541   1,286
+ 2 2023             4,998  3,714  2,631  2,569  5,134  6,000  2,337  3,312 3,246
+ 3 2022             48,376 41,241 41,233 29,825 46,647 48,959 39,535 46,1… 39,6…
+ 4 2021             1,412  3,461  287    606    1,030  287    3,045  3     2,097
+ 5 2020             36     62     32     25     34     44     313    3     110  
+ 6 2019             0      0      0      0      0      0      0      0     &lt;NA&gt; 
+ 7 2018             0      0      0      0      0      0      0      0     &lt;NA&gt; 
+ 8 2017             0      0      0      0      0      0      0      0     &lt;NA&gt; 
+ 9 2016             0      0      0      0      0      0      0      0     &lt;NA&gt; 
+10 2015             0      0      0      0      0      0      0      0     &lt;NA&gt; 
+# ℹ 26 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#change format to long for visualisation</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>covid_long <span class="ot">&lt;-</span> covid_rate <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Diagnosis Year</span><span class="st">`</span>,      <span class="co"># keep 'Diagnosis Year' as-is</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"State"</span>,            <span class="co"># new column for state names</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Rate"</span>             <span class="co"># new column for the values</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Rate) <span class="sc">&amp;</span> Rate <span class="sc">!=</span> <span class="dv">0</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>covid_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 45 × 3
+   `Diagnosis Year` State Rate 
+   &lt;chr&gt;            &lt;chr&gt; &lt;chr&gt;
+ 1 2024             ACT   1,010
+ 2 2024             NSW   1,579
+ 3 2024             NT    1,107
+ 4 2024             QLD   1,319
+ 5 2024             SA    2,347
+ 6 2024             TAS   2,113
+ 7 2024             VIC   789  
+ 8 2024             WA    541  
+ 9 2024             AUS   1,286
+10 2023             ACT   4,998
+# ℹ 35 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove commas and convert to numeric</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>covid_long<span class="sc">$</span>Rate <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, covid_long<span class="sc">$</span>Rate))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure Year is numeric or factor</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>covid_long<span class="sc">$</span><span class="st">`</span><span class="at">Diagnosis Year</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(covid_long<span class="sc">$</span><span class="st">`</span><span class="at">Diagnosis Year</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Job vacancies</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1. go to website "https://www.abs.gov.au/statistics/labour/jobs/job-vacancies-australia/feb-2025#media-releases"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#2. go to topic "Data downloads" and download XLSX the fist table name "Job vacancies, states and territories ('000)"</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#3. load data into Rstudio</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>job_vacancy <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/6354001.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Data1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...1`
+• `Job Vacancies ; Australia ;` -&gt; `Job Vacancies ; Australia ;...10`
+• `Job Vacancies ; Australia ;` -&gt; `Job Vacancies ; Australia ;...11`
+• `Job Vacancies ; Australia ;` -&gt; `Job Vacancies ; Australia ;...12`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Excel serial to Date (base = 1900-01-01)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>job_vacancy<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">as.numeric</span>(job_vacancy[[<span class="dv">1</span>]]), <span class="at">origin =</span> <span class="st">"1899-12-30"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>job_vacancy <span class="ot">&lt;-</span> job_vacancy[, <span class="fu">c</span>(<span class="fu">ncol</span>(job_vacancy), <span class="dv">1</span><span class="sc">:</span>(<span class="fu">ncol</span>(job_vacancy)<span class="sc">-</span><span class="dv">1</span>))] <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">"...1"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"2016-01-01"</span>))</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>job_vacancy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 37 × 9
+   Date       `Job Vacancies ;  New South Wales ;` `Job Vacancies ;  Victoria ;`
+   &lt;date&gt;     &lt;chr&gt;                                &lt;chr&gt;                        
+ 1 2016-02-15 65.3                                 47.3                         
+ 2 2016-05-15 68.099999999999994                   39.700000000000003           
+ 3 2016-08-15 69.400000000000006                   45.3                         
+ 4 2016-11-15 69                                   45.4                         
+ 5 2017-02-15 68.099999999999994                   50.4                         
+ 6 2017-05-15 68.099999999999994                   43.2                         
+ 7 2017-08-15 75                                   54.4                         
+ 8 2017-11-15 78.599999999999994                   55.6                         
+ 9 2018-02-15 76.5                                 58.4                         
+10 2018-05-15 74.400000000000006                   61.5                         
+# ℹ 27 more rows
+# ℹ 6 more variables: `Job Vacancies ;  Queensland ;` &lt;chr&gt;,
+#   `Job Vacancies ;  South Australia ;` &lt;chr&gt;,
+#   `Job Vacancies ;  Western Australia ;` &lt;chr&gt;,
+#   `Job Vacancies ;  Tasmania ;` &lt;chr&gt;,
+#   `Job Vacancies ;  Northern Territory ;` &lt;chr&gt;,
+#   `Job Vacancies ;  Australian Capital Territory ;` &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#unit in thousand '000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Convert columns to proper format</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>job_vacancy_clean <span class="ot">&lt;-</span> job_vacancy <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Date, as.numeric))  <span class="co"># Convert all state columns to numeric</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Convert to long format</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>job_vacancy_long <span class="ot">&lt;-</span> job_vacancy_clean <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>Date,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"State"</span>,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Vacancies"</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">case_when</span>(</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"New South Wales"</span>) <span class="sc">~</span> <span class="st">"NSW"</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"Victoria"</span>) <span class="sc">~</span> <span class="st">"VIC"</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"Queensland"</span>) <span class="sc">~</span> <span class="st">"QLD"</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"South Australia"</span>) <span class="sc">~</span> <span class="st">"SA"</span>,</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"Western Australia"</span>) <span class="sc">~</span> <span class="st">"WA"</span>,</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"Tasmania"</span>) <span class="sc">~</span> <span class="st">"TAS"</span>,</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"Northern Territory"</span>) <span class="sc">~</span> <span class="st">"NT"</span>,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(State, <span class="st">"Australian Capital Territory"</span>) <span class="sc">~</span> <span class="st">"ACT"</span>,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> State  </span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Merge data for visualisation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">##homeless</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>homeless_change <span class="ot">&lt;-</span> (homeless_2021[,<span class="sc">-</span><span class="dv">1</span>] <span class="sc">-</span> homeless_2016[,<span class="sc">-</span><span class="dv">1</span>]) <span class="sc">/</span> homeless_2016[,<span class="sc">-</span><span class="dv">1</span>] <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>homeless_change <span class="ot">&lt;-</span> <span class="fu">round</span>(homeless_change, <span class="dv">2</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>homeless_change_long <span class="ot">&lt;-</span> homeless_change <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"State"</span>, <span class="at">values_to =</span> <span class="st">"Homeless_Change"</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>homeless_change_long <span class="ot">&lt;-</span> homeless_change_long <span class="sc">%&gt;%</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">case_when</span>(</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Vic."</span> <span class="sc">~</span> <span class="st">"VIC"</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"NSW"</span> <span class="sc">~</span> <span class="st">"NSW"</span>,</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Qld"</span> <span class="sc">~</span> <span class="st">"QLD"</span>,</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"SA"</span> <span class="sc">~</span> <span class="st">"SA"</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"WA"</span> <span class="sc">~</span> <span class="st">"WA"</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Tas."</span> <span class="sc">~</span> <span class="st">"TAS"</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"NT"</span> <span class="sc">~</span> <span class="st">"NT"</span>,</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"ACT"</span> <span class="sc">~</span> <span class="st">"ACT"</span>,</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    State <span class="sc">==</span> <span class="st">"Aust.(b)(c)"</span> <span class="sc">~</span> <span class="st">"AUS"</span>,</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> State  <span class="co"># fallback to keep other labels unchanged</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(State <span class="sc">!=</span> <span class="st">"AUS"</span>)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="do">##covid</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter only years we want to compare</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>covid_filtered <span class="ot">&lt;-</span> covid_long <span class="sc">%&gt;%</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Diagnosis Year</span><span class="st">`</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>))</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="co">#Pivot wider</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>covid_wide <span class="ot">&lt;-</span> covid_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">`</span><span class="at">Diagnosis Year</span><span class="st">`</span>, <span class="at">values_from =</span> Rate)</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculate % change (choose 2020 to 2021 or 2022)</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>covid_change <span class="ot">&lt;-</span> covid_wide <span class="sc">%&gt;%</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percent_Change_21 =</span> (<span class="st">`</span><span class="at">2021</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">2020</span><span class="st">`</span>) <span class="sc">/</span> <span class="st">`</span><span class="at">2020</span><span class="st">`</span> <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="do">##jobvacancy</span></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a><span class="co">#Extract year from the Date</span></span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>job_vacancy_long_year <span class="ot">&lt;-</span> job_vacancy_long <span class="sc">%&gt;%</span></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">year</span>(Date))</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="co">#Average vacancies by State and Year</span></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>job_vacancy_summary <span class="ot">&lt;-</span> job_vacancy_long_year <span class="sc">%&gt;%</span></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2021</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(State, Year) <span class="sc">%&gt;%</span></span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Avg_Vacancy =</span> <span class="fu">mean</span>(Vacancies, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a><span class="co">#Pivot wider so each state has a column for 2016 and 2021</span></span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>job_vacancy_change <span class="ot">&lt;-</span> job_vacancy_summary <span class="sc">%&gt;%</span></span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Year, <span class="at">values_from =</span> Avg_Vacancy, <span class="at">names_prefix =</span> <span class="st">"Year_"</span>)</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculate % change</span></span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>job_vacancy_change <span class="ot">&lt;-</span> job_vacancy_change <span class="sc">%&gt;%</span></span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">JobVacancy_Change =</span> (Year_2021 <span class="sc">-</span> Year_2016) <span class="sc">/</span> Year_2016 <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a><span class="co">#merge all data</span></span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> homeless_change_long <span class="sc">%&gt;%</span></span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(covid_change <span class="sc">%&gt;%</span> <span class="fu">select</span>(State, Percent_Change_21), <span class="at">by =</span> <span class="st">"State"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(job_vacancy_change <span class="sc">%&gt;%</span> <span class="fu">select</span>(State, JobVacancy_Change), <span class="at">by =</span> <span class="st">"State"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ai-acknowledgement" class="level3">
+<h3 class="anchored" data-anchor-id="ai-acknowledgement">AI acknowledgement</h3>
+<p><a href="https://chatgpt.com/share/68577660-d28c-8002-958a-c2620ead8979" class="uri">https://chatgpt.com/share/68577660-d28c-8002-958a-c2620ead8979</a></p>
+<!-- Task 2 Tab: Writing your blogpost -->
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<section id="why-is-homelessness-increasing-in-australia" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-homelessness-increasing-in-australia">Why Is Homelessness Increasing in Australia?</h3>
+<p>When we think of homelessness, we often picture someone sleeping rough on the street. But homelessness is much broader than that. In Australia, homelessness includes people who don’t have a stable, safe, or adequate place to live. This could mean staying in crisis accommodation or shelters, sleeping in cars or public spaces, couch surfing with friends or family, or living in overcrowded or insecure housing without a proper lease.</p>
+<p>The Australian Bureau of Statistics (ABS) defines someone as homeless if their living situation is inadequate, lacks secure tenure, or doesn’t provide them with control over their personal space. In short, homelessness isn’t just about having a roof over your head. it’s about having a home where you feel safe, stable, and connected.</p>
+</section>
+<section id="why-analyse-homelessness-in-australia" class="level3">
+<h3 class="anchored" data-anchor-id="why-analyse-homelessness-in-australia">Why analyse homelessness in Australia?</h3>
+<p>When I first visited Melbourne in 2017, homelessness didn’t seem very visible. But when I returned in 2024, I noticed a stark difference, many more people sleeping rough or asking for help on the streets. This got me wondering: <em>What changed?</em> Why are more people without homes in one of the world’s most liveable cities?</p>
+</section>
+<section id="exploring-the-possible-causes" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-the-possible-causes">Exploring the Possible Causes</h3>
+<p>To dig deeper, I looked into three datasets that might offer some clues:</p>
+<ol type="1">
+<li><strong>Homelessness Data</strong>: Sourced from the Australian Bureau of Statistics (ABS), this dataset is based on the 2021 Census of Population and Housing. Because it covers the entire population—not just a sample—it offers a comprehensive national view. The timing is also significant: 2021 was right in the middle of the COVID-19 pandemic, making this dataset especially valuable for understanding how the crisis may have affected housing security.</li>
+<li><strong>COVID-19 Cases</strong>: The pandemic caused massive disruptions to the economy. People lost jobs, businesses shut down, and mental health challenges surged. I used data from the National Notifiable Diseases Surveillance System (NNDSS), which records COVID-19 notification rates by state, age, and sex.</li>
+<li><strong>Job Vacancies</strong>: This data from the ABS tracks how many job openings were available each quarter. It’s a good way to gauge how easy (or hard) it was to find work—especially during and after the pandemic.</li>
+</ol>
+<p>Together, these datasets helped me explore whether the pandemic and the job market had anything to do with the rise in homelessness.</p>
+</section>
+<section id="what-the-data-tells-us" class="level3">
+<h3 class="anchored" data-anchor-id="what-the-data-tells-us">What the Data Tells Us</h3>
+<p>The chart below shows the change in the number of homeless persons in each Australian state between the 2016 and 2021 censuses. Victoria recorded the largest increase in homelessness, with over 5,000 more people counted as homeless in 2021 compared to 2016. South Australia, Queensland, and Tasmania also saw noticeable increases. In contrast, New South Wales and the Northern Territory experienced a decline in homelessness. These trends suggest that homelessness is not rising uniformly across the country, and local factors such as housing supply, policy interventions, and economic conditions may be influencing the outcomes differently in each state.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The COVID notification rate spiked dramatically across all four states in 2022, with the Northern Territory (NT) and Victoria (VIC) reporting the highest case rates, closely followed by New South Wales (NSW). Queensland (QLD) also saw a significant increase, though slightly lower in comparison. This sharp peak highlights the widespread impact of the pandemic during that period. However, despite higher COVID rates in NT and VIC, their homelessness outcomes diverged — VIC saw the largest increase in homelessness, while NT experienced a decline. This suggests that other factors, such as state-level policies, support measures, or demographic differences, may have influenced how the pandemic affected housing security.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Lastly, job vacancies dropped sharply in early 2020 across all states, reflecting the immediate economic impact of the COVID-19 outbreak. However, starting in 2021, there was a strong rebound in most regions, particularly in New South Wales (NSW) and Victoria (VIC), which saw job openings peak in 2022.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I ran a correlation analysis to understand how changes in COVID cases and job vacancies related to homelessness. Here’s what stood out:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>COVID vs.&nbsp;Job Vacancies (r = 0.78)</strong><br>
+Surprisingly, as COVID notifications rose, so did job vacancies. This might reflect the shift in demand—more jobs in health, cleaning, and delivery sectors, for example.</p>
+<p><strong>COVID vs.&nbsp;Homelessness (r = –0.43)</strong><br>
+You’d expect COVID to make things worse, but the data suggests states with higher COVID rates didn’t always see a spike in homelessness. This could be due to short-term government support like JobKeeper and emergency housing.</p>
+<p><strong>Job Vacancies vs.&nbsp;Homelessness (r = 0.48)</strong><br>
+Even where job vacancies grew, homelessness still increased. This might mean the new jobs weren’t accessible or suitable for vulnerable populations.</p>
+</section>
+<section id="what-this-means" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-means">What This Means</h3>
+<p>Homelessness is complex. It’s not just about job numbers or infection rates—it’s about how resilient people are, what support systems exist, and whether society’s safety nets are working. What I’ve learned is that more jobs don’t always mean fewer homeless people. And COVID may have temporarily paused the crisis rather than solving it.</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>Homelessness in Australia is increasing, but the reasons behind it are complex and vary across states. While Victoria saw a major spike, some states like NSW and NT experienced a decline. My exploration into COVID-19 case rates and job vacancies shows that the story is more complex than just economic downturns or public health crises. Interestingly, even though some states had more job openings, homelessness still went up. This shows that the economic recovery didn’t help everyone, especially people who were already struggling. And although COVID had a huge impact, emergency government responses may have buffered its immediate effect on housing loss. Ultimately, homelessness is shaped by many overlapping forces, such as health, employment, policy, and social safety nets. It’s not just a housing problem, it’s a systems problem. Understanding those connections is key if we want real solutions.</p>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>Australian Bureau of Statistics. (2021). <em>Estimating Homelessness: Census</em>. https://www.abs.gov.au/statistics/people/housing/estimating-homelessness-census/2021.</p>
+<p>Australian Bureau of Statistics. (2021). <em>Estimating Homelessness: Census methodology.</em> https://www.abs.gov.au/methodologies/estimating-homelessness-census-methodology/2021#abbreviations</p>
+<p>Australian Bureau of Statistics. (2025). <em>Job Vacancies, Australia methodology.</em> https://www.abs.gov.au/methodologies/job-vacancies-australia-methodology/feb-2025#how-the-data-is-collected</p>
+<p>Department of Health, Disability, and Ageing (2025). National Notifiable Disease Surveillance System, Department of Health and Aged Care website, accessed 16 June 2025. https://nindss.health.gov.au/pbi-dashboard/.</p>
+<p>Wickham H, François R, Henry L, Müller K, Vaughan D (2023). <em>dplyr: A Grammar of Data Manipulation</em>. R package version 1.1.4, <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+<p>Wickham H, Bryan J (2023). <em>readxl: Read Excel Files</em>. R package version 1.4.3, <a href="https://CRAN.R-project.org/package=readxl" class="uri">https://CRAN.R-project.org/package=readxl</a>.</p>
+<p>Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” <em>Journal of Open Source Software</em>, <em>4</em>(43), 1686. doi:10.21105/joss.01686 <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a>.</p>
+<p>Wickham H (2024). <em>rvest: Easily Harvest (Scrape) Web Pages</em>. R package version 1.0.4, <a href="https://CRAN.R-project.org/package=rvest" class="uri">https://CRAN.R-project.org/package=rvest</a>.</p>
+<p>Kassambara A (2023). <em>ggcorrplot: Visualization of a Correlation Matrix using ‘ggplot2’</em>. R package version 0.1.4.1, <a href="https://CRAN.R-project.org/package=ggcorrplot" class="uri">https://CRAN.R-project.org/package=ggcorrplot</a>.</p>
+<p>Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL <a href="https://www.jstatsoft.org/v40/i03/." class="uri">https://www.jstatsoft.org/v40/i03/.</a></p>
+<p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.</p>
+<!-- Task 3 Tab: Behind the Scenes -  -->
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p><em>Tell us about parts of&nbsp;<strong>your</strong>&nbsp;data processing or analysis that weren’t “sexy” and wouldn’t typically be included in a blog post.</em></p>
+<p>At the beginning, I used too many datasets without fully considering the time and effort required to clean and prepare them for analysis. Merging the data turned out to be time-consuming. In the end, one dataset couldn’t be used at all because it lacked a key variable, State, which made it incompatible with the others.</p>
+</section>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<p><em>Were there any challenges that&nbsp;<strong>you</strong>&nbsp;faced in conducting this analysis. These may take the form of data limitations or coding challenges?</em></p>
+<p>I changed the question from “Is there a correlation between the COVID-19 pandemic (cases confirmed) and homelessness in Melbourne OR other area, like Brisbane or Sydney? Each local government policy on Covid-19 make difference?” to “What could be the factors contributing to the increase in homelessness in Australia? Which state has most increasing in homelessness and what possibly could be the reason?” because homelessness data is only available at the time of the national Census. In addition, I’m not familiar with COR function, which I need to study more about it.</p>
+</section>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
+<p><em>Tell us about any imperfect parts of your work and how&nbsp;<strong>you</strong>&nbsp;would like to expand or improve this analysis in future? Be clear about any limitations or aspects of your analysis that fell beyond scope.</em></p>
+<p>Due to the limited time frame, I focused on a few factors that may contribute to the rise in homelessness in Australia. However, I believe the causes of homelessness are more complex than just two or three factors. It may also involve government policies, which are not available as datasets to analyse alongside the others. In addition, the results should not be taken as definitive proof of a rise in homelessness. They only suggest possible contributing factors or correlations. The datasets I used may not directly answer the question I posed, but they offer some insights. To truly understand the underlying causes, more targeted data, further research, and additional time would be necessary.</p>
+</section>
+</div>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
